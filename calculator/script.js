@@ -106,6 +106,20 @@ class Calculator {
         this.currentOperand = (current / 100).toString();
     }
 
+    computeSqrt() {
+        if (this.currentOperand === '' || this.currentOperand === '-') return;
+        const current = parseFloat(this.currentOperand);
+        if (current < 0) {
+            alert("Error: Square root of negative number is invalid");
+            this.clear();
+            return;
+        }
+        let result = Math.sqrt(current);
+        result = Math.round(result * 10000000000) / 10000000000;
+        this.currentOperand = result.toString();
+        this.shouldResetScreen = true;
+    }
+
     getDisplayNumber(number) {
         if (number === '-') return '-';
         
@@ -171,6 +185,8 @@ actionButtons.forEach(button => {
             calculator.delete();
         } else if (action === 'percent') {
             calculator.computePercent();
+        } else if (action === 'sqrt') {
+            calculator.computeSqrt();
         }
         calculator.updateDisplay();
     });

@@ -69,6 +69,20 @@ body {
     background-color: #888888;
 }
 
+.btn-action {
+    background-color: #D4D4D2; /* Light grey */
+    color: black;
+}
+
+.btn-action:active {
+    background-color: #A5A5A5;
+}
+
+.btn-zero {
+    grid-column: span 2;
+    text-align: center;
+}
+
 .btn-equals {
     background-color: #004B87; /* Darker blue */
 }
